@@ -1,0 +1,19 @@
+<Solution>
+	<Folder Name="/Workspace/">		
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+	  <File Path="commitlint.config.mjs" />
+	  <File Path="package-lock.json" />
+	  <File Path="package.json" />
+	</Folder>	
+	<Folder Name="/Workspace/.husky/">
+		<File Path=".husky/commit-msg" /> 	
+	</Folder>	
+  <Folder Name="/Solution Items/">
+    <File Path="exo.md" />
+    <File Path="readme.md" />
+    <File Path="schema_db.png" />
+  </Folder>
+  <Project Path="DAL/DAL.csproj" />
+  <Project Path="Demo_EFCore_02/Demo_EFCore_02.csproj" />
+</Solution>
