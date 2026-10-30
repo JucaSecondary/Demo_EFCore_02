@@ -12,6 +12,11 @@ namespace DAL.Repositories
       _dbContext = dbContext;
     }
 
+    public PlayerEntity? GetById(int id)
+    {
+      return _dbContext.Players.SingleOrDefault(p => p.Id == id);
+    }
+
     public IEnumerable<PlayerEntity> GetAll()
     {
       return _dbContext.Players.ToList();

@@ -20,5 +20,13 @@ namespace Demo_EFCore_02.Controllers
       IEnumerable<PlayerViewModel> players = _playerRepository.GetAll().Select(PlayerMapper.ToViewModel);
       return View(players);
     }
+
+    public IActionResult Details(int id)
+    {
+      PlayerViewModel? player = _playerRepository.GetById(id)?.ToViewModel();
+      if (player == null) return NotFound();
+      //On pourrait lancer une exception mais il faudrait ajouter un handler à notre application
+      return View(player);
+    }
   }
 }
