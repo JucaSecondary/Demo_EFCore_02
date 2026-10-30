@@ -7,5 +7,8 @@
     EntityType? GetById(int id);
 
     IEnumerable<EntityType> GetAll();
+
+    bool Update(int id, EntityType data);
+
   }
 }

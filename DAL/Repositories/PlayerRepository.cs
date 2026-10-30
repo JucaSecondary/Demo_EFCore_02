@@ -29,5 +29,19 @@ namespace DAL.Repositories
       return result.Entity.Id;
     }
 
+    public bool Update(int id, PlayerEntity data)
+    {
+      //TODO: Vérifier si le joueur d'id `id` existe
+      PlayerEntity dataForUpdate = new()
+      {
+        Id = id,
+        NickName = data.NickName,
+        FirstName = data.FirstName,
+        LastName = data.LastName,
+      };
+      _dbContext.Update(dataForUpdate);
+      _dbContext.SaveChanges();
+      return true;
+    }
   }
 }
