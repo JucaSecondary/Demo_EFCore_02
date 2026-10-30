@@ -10,5 +10,6 @@
 
     bool Update(int id, EntityType data);
 
+    bool Delete(int id);
   }
 }

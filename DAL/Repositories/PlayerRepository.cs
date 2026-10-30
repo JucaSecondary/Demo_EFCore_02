@@ -1,4 +1,5 @@
 ﻿using DAL.Entities;
+using DAL.Exceptions;
 using DAL.Interfaces;
 
 namespace DAL.Repositories
@@ -40,6 +41,16 @@ namespace DAL.Repositories
         LastName = data.LastName,
       };
       _dbContext.Update(dataForUpdate);
+      _dbContext.SaveChanges();
+      return true;
+    }
+
+    public bool Delete(int id)
+    {
+      //On pourrait utiliser le GetById mais ne pas le faire permet de délier le code et de séparer au mieux les intentions, ce n'est pas grâce si le code se répète.
+      PlayerEntity? playerToDelete = _dbContext.Players.SingleOrDefault(p => p.Id == id);
+      if (playerToDelete == null) throw new EntityNotFoundException(typeof(PlayerEntity), nameof(playerToDelete.Id), id);
+      _dbContext.Remove(playerToDelete);
       _dbContext.SaveChanges();
       return true;
     }

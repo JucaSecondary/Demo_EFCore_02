@@ -39,6 +39,7 @@ namespace Demo_EFCore_02.Controllers
     {
       if (!ModelState.IsValid)
         return View(playerForm);
+      //TODO: Vérifier si le joueur n'existe pas déjà (respect des contraintes check)
       var returnId = _playerRepository.Create(playerForm.ToEntity());
       //TODO: faire un message pour l'utilisateur: "Joueur taratata créé avec succès"
       return RedirectToAction(nameof(Details), new { Id = returnId });
@@ -60,6 +61,20 @@ namespace Demo_EFCore_02.Controllers
       _playerRepository.Update(id, playerForm.ToEntity());
 
       return RedirectToAction(nameof(Details), new { Id = id });
+    }
+
+    public IActionResult Delete(int id)
+    {
+      PlayerViewModel? player = _playerRepository.GetById(id)?.ToViewModel();
+      if (player == null) return NotFound();
+      return View(player);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(int id, PlayerViewModel player)
+    {
+      _playerRepository.Delete(id);
+      return RedirectToAction(nameof(Index));
     }
   }
 }
