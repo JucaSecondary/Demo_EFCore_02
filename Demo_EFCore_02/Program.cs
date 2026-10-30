@@ -1,4 +1,7 @@
 using DAL;
+using DAL.Entities;
+using DAL.Interfaces;
+using DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 internal class Program
@@ -17,6 +20,7 @@ internal class Program
       options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
     });
     //- Repository
+    builder.Services.AddScoped<IRepositoryCRUD<PlayerEntity>, PlayerRepository>();
 
     var app = builder.Build();
 

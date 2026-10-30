@@ -54,6 +54,84 @@ namespace DAL.Migrations
                         .HasDatabaseName("IDX_Players_Name");
 
                     b.ToTable("Players", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            FirstName = "Katrine",
+                            LastName = "Heiton",
+                            NickName = "PotatoRagi"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            FirstName = "Kaleena",
+                            LastName = "MacGilmartin",
+                            NickName = "VictoriousClovito"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            FirstName = "Gay",
+                            LastName = "Mc Faul",
+                            NickName = "HirjiDisgusted"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            FirstName = "Nealy",
+                            LastName = "Danielsky",
+                            NickName = "PalladiumDysprosium"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            FirstName = "Lorita",
+                            LastName = "Blumire",
+                            NickName = "SickLonely"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            FirstName = "Arleta",
+                            LastName = "Venables",
+                            NickName = "AliveTurnip"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            FirstName = "Kimbell",
+                            LastName = "Tirte",
+                            NickName = "PotatoManil"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            FirstName = "Roobbie",
+                            LastName = "Rosekilly",
+                            NickName = "AliveMizuchi"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            FirstName = "Nita",
+                            LastName = "Dragon",
+                            NickName = "ToadValkyrie"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            FirstName = "Olva",
+                            LastName = "Dukes",
+                            NickName = "MoscoviumObnoxious"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            FirstName = "Leroy",
+                            LastName = "Jenkins"
+                        });
                 });
 #pragma warning restore 612, 618
         }
