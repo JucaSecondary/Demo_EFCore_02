@@ -1,4 +1,4 @@
-﻿namespace Demo_EFCore_02.Models
+﻿namespace Demo_EFCore_02.Models.Player
 {
   public class PlayerViewModel
   {

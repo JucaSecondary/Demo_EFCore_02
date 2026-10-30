@@ -1,5 +1,5 @@
 ﻿using DAL.Entities;
-using Demo_EFCore_02.Models;
+using Demo_EFCore_02.Models.Player;
 
 namespace Demo_EFCore_02.Mappers
 {
@@ -13,6 +13,17 @@ namespace Demo_EFCore_02.Mappers
         NickName = playerEntity.NickName,
         FirstName = playerEntity.FirstName,
         LastName = playerEntity.LastName,
+      };
+    }
+
+    public static PlayerEntity ToEntity(this PlayerForm playerForm)
+    {
+      return new PlayerEntity()
+      {
+        Id = 0, //Mettre à la valeur par défaut si non modifié dans la configuration par .HasSentinel
+        NickName = playerForm.NickName,
+        FirstName = playerForm.FirstName,
+        LastName = playerForm.LastName,
       };
     }
   }

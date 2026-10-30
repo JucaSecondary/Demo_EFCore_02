@@ -21,5 +21,13 @@ namespace DAL.Repositories
     {
       return _dbContext.Players.ToList();
     }
+
+    public int Create(PlayerEntity data)
+    {
+      var result = _dbContext.Players.Add(data);
+      _dbContext.SaveChanges();
+      return result.Entity.Id;
+    }
+
   }
 }

@@ -1,7 +1,7 @@
 ﻿using DAL.Entities;
 using DAL.Interfaces;
 using Demo_EFCore_02.Mappers;
-using Demo_EFCore_02.Models;
+using Demo_EFCore_02.Models.Player;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Demo_EFCore_02.Controllers
@@ -27,6 +27,21 @@ namespace Demo_EFCore_02.Controllers
       if (player == null) return NotFound();
       //On pourrait lancer une exception mais il faudrait ajouter un handler à notre application
       return View(player);
+    }
+
+    public IActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(PlayerForm playerForm)
+    {
+      if (!ModelState.IsValid)
+        return View(playerForm);
+      var returnId = _playerRepository.Create(playerForm.ToEntity());
+      //TODO: faire un message pour l'utilisateur: "Joueur taratata créé avec succès"
+      return RedirectToAction(nameof(Details), new { Id = returnId });
     }
   }
 }

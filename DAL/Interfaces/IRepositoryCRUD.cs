@@ -2,6 +2,8 @@
 {
   public interface IRepositoryCRUD<EntityType>
   {
+    int Create(EntityType data);
+
     EntityType? GetById(int id);
 
     IEnumerable<EntityType> GetAll();
