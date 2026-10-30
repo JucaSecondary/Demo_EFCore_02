@@ -9,6 +9,7 @@ namespace DAL
     #region Properties
 
     public DbSet<PlayerEntity> Players { get; set; }
+    public DbSet<RaceEntity> Races { get; set; }
 
     #endregion Properties
 
@@ -32,6 +33,7 @@ namespace DAL
       //modelBuilder.ApplyConfigurationsFromAssembly(typeof(DungeonDbContext).Assembly);
       //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
       modelBuilder.ApplyConfiguration(new PlayerEntityConfiguration());
+      modelBuilder.ApplyConfiguration(new RaceEntityConfiguration());
       //TODO: Ne pas oublier d'ajouter la config pour les autres tables
     }
 

@@ -133,6 +133,83 @@ namespace DAL.Migrations
                             LastName = "Jenkins"
                         });
                 });
+
+            modelBuilder.Entity("DAL.Entities.RaceEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id")
+                        .HasName("PK_Races");
+
+                    SqlServerKeyBuilderExtensions.IsClustered(b.HasKey("Id"));
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasDatabaseName("UK_Races_Name");
+
+                    b.ToTable("Races", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Human"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Monke"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Elf"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Half-elf"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Clanker"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Terran"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Avian"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Floran"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Novakid"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "LeFishe"
+                        });
+                });
 #pragma warning restore 612, 618
         }
     }
